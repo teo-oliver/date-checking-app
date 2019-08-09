@@ -1,0 +1,3 @@
+{
+  "mongoURI": "mongodb+srv://teo:12b425@datecheckapp-cbdkb.mongodb.net/test?retryWrites=true&w=majority"
+}
