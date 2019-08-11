@@ -15,6 +15,9 @@ const ItemSchema = new Schema({
     type: Date,
     required: true
   },
+  expMonth: {
+    type: String
+  },
   quantity: {
     type: Number,
     required: true
