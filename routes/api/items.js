@@ -77,6 +77,21 @@ router.post('/', async (req, res) => {
 // @route     PUT api/items/50/:id
 // @desc      Toggle reduce item by 50
 // @access    Public
+router.put('/50/:id', async (req, res) => {
+  try {
+    const item = await Item.findById(req.params.id);
+    item.reduceToHalf = false;
+    item.reduceToHalf = !item.reduceToHalf;
+
+    await item.save();
+    res.json(item.reduceToHalf);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return res.status(400).json({ msg: 'Item not found' });
+    }
+  }
+});
 
 // @route     PUT api/items/90/:id
 // @desc      Toggle reduce item by 90

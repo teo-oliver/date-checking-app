@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { createItem } from '../actions/item';
+import { createItem } from '../../actions/item';
 
 //Make ItemInputForm as a modal. Or maybe in the sideNav?
 
@@ -27,9 +27,9 @@ const ItemInputForm = ({ createItem }) => {
     e.preventDefault();
     const dateData = formData.expDate.split('/');
     console.log(dateData.length);
-    if (dateData.length == 2) {
+    if (dateData.length === 2) {
       formData.expDate = `${dateData[1]}-${dateData[0]}`;
-    } else if (dateData.length == 3) {
+    } else if (dateData.length === 3) {
       formData.expDate = `${dateData[1]}-${dateData[0]}-${dateData[2]}`;
     }
     console.log(formData.expDate);
@@ -47,7 +47,7 @@ const ItemInputForm = ({ createItem }) => {
         <input
           className="form"
           type="text"
-          placeholder="Sku"
+          placeholder="#000000"
           name="sku"
           value={sku}
           onChange={e => onChange(e)}
@@ -63,7 +63,7 @@ const ItemInputForm = ({ createItem }) => {
         <input
           className="form"
           type="text"
-          placeholder="Exp"
+          placeholder="d/m/y"
           name="expDate"
           value={expDate}
           onChange={e => onChange(e)}

@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getItems, getItemsByMonth, removeItem } from '../actions/item';
+import { getItems, getItemsByMonth, removeItem } from '../../actions/item';
 import Moment from 'react-moment';
+
+//Inventory
 
 const Table = props => {
   useEffect(() => {
@@ -28,6 +30,9 @@ const Table = props => {
             <input type="checkbox" name="" value="" checked />
           </td>
           <td>
+            <input type="text" name="" id="" />
+          </td>
+          <td>
             <button onClick={() => props.removeItem(item._id)}>X</button>
           </td>
         </tr>
@@ -48,6 +53,7 @@ const Table = props => {
             <th>Quantity</th>
             <th>50%</th>
             <th>90%</th>
+            <th>Written Off</th>
             <th>Delete</th>
           </tr>
           {renderTableRow()}

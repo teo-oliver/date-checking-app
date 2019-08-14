@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import Navbar from './components/Navbar';
-import Table from './components/Table';
-import ItemInputForm from './components/ItemInputForm';
+import Navbar from './components/navbar/Navbar';
+import Table from './components/table/Table';
+import ItemInputForm from './components/itemInputForm/ItemInputForm';
 
 // Redux
 import { Provider } from 'react-redux';
