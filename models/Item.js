@@ -23,8 +23,7 @@ const ItemSchema = new Schema({
     required: true
   },
   section: {
-    type: String,
-    required: true
+    type: String
   },
   user: {
     type: Schema.Types.ObjectId,

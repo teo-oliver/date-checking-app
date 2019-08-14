@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { createItem } from '../actions/item';
 
-const ItemInputForm = () => {
+//Make ItemInputForm as a modal. Or maybe in the sideNav?
+
+const ItemInputForm = ({ createItem }) => {
   const [formData, setFormData] = useState({
     name: '',
     sku: '',
@@ -8,46 +12,38 @@ const ItemInputForm = () => {
     expMonth: '',
     quantity: '',
     section: '',
-    user: '',
-    reduceToHalf: '',
-    reduceto10: ''
+    user: null,
+    reduceto10: false,
+    reduceToHalf: false
   });
 
-  const {
-    name,
-    sku,
-    expDate,
-    quantity,
-    section,
-    user,
-    reduceToHalf,
-    reduceto10
-  } = formData;
+  const { name, sku, expDate, quantity } = formData;
 
   const onChange = e => {
     return setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    const dateData = formData.expDate.split('/');
+    console.log(dateData.length);
+    if (dateData.length == 2) {
+      formData.expDate = `${dateData[1]}-${dateData[0]}`;
+    } else if (dateData.length == 3) {
+      formData.expDate = `${dateData[1]}-${dateData[0]}-${dateData[2]}`;
+    }
+    console.log(formData.expDate);
+
+    // TODO set expMonth from expDate
+    // formData.expMonth = formData.expDate.getMonth()
+    // console.log(formData.expMonth);
+
+    createItem(formData);
+  };
+
   return (
     <div className="container">
-      <table className="table-row">
-        <tr>
-          <th>#SKU</th>
-          <th>Product</th>
-          <th>EXP</th>
-          <th>Date Added</th>
-          <th>Qyantity</th>
-          <th>50%</th>
-          <th>90%</th>
-          <th>Delete</th>
-        </tr>
-      </table>
-      <form
-        onSubmit={e => {
-          console.log('xxxxx');
-          e.preventDefault();
-        }}
-      >
+      <form onSubmit={e => handleSubmit(e)}>
         <input
           className="form"
           type="text"
@@ -80,11 +76,19 @@ const ItemInputForm = () => {
           value={quantity}
           onChange={e => onChange(e)}
         />
-        <button>Discard</button>
-        <button>Save</button>
+        <input type="submit" value="Update" />
       </form>
     </div>
   );
 };
 
-export default ItemInputForm;
+const mapStateToProps = state => {
+  return {
+    items: Object.values(state.items)
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { createItem }
+)(ItemInputForm);

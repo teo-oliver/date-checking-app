@@ -1,23 +1,66 @@
 import React from 'react';
+import './Navbar.css';
 
 const Navbar = () => {
   return (
-    <nav>
-      <ul>
-        <li>January</li>
-        <li>February</li>
-        <li>March</li>
-        <li>April</li>
-        <li>May</li>
-        <li>June</li>
-        <li>July</li>
-        <li>August</li>
-        <li>September</li>
-        <li>October</li>
-        <li>November</li>
-        <li>December</li>
-      </ul>
-    </nav>
+    <header className="toolbar">
+      <nav className="toolbar__navigation">
+        <div className="toolbar__logo">
+          <a href="/">DateCheck</a>
+        </div>
+        <div className="toolbar__navigation-items">
+          <ul>
+            <li>
+              <a href="/">January</a>
+            </li>
+
+            <li>
+              <a href="/">February</a>
+            </li>
+
+            <li>
+              <a href="/">March</a>
+            </li>
+
+            <li>
+              <a href="/">April</a>
+            </li>
+
+            <li>
+              <a href="/">May</a>
+            </li>
+
+            <li>
+              <a href="/">June</a>
+            </li>
+
+            <li>
+              <a href="/">July</a>
+            </li>
+
+            <li>
+              <a href="/">August</a>
+            </li>
+
+            <li>
+              <a href="/">September</a>
+            </li>
+
+            <li>
+              <a href="/">October</a>
+            </li>
+
+            <li>
+              <a href="/">November</a>
+            </li>
+
+            <li>
+              <a href="/">December</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
   );
 };
 

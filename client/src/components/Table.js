@@ -1,113 +1,69 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { getItems, getItemsByMonth, removeItem } from '../actions/item';
+import Moment from 'react-moment';
 
-const Table = () => {
+const Table = props => {
+  useEffect(() => {
+    props.getItems();
+  }, []);
+
+  console.log('This is from props: ', props.items);
+
+  const renderTableRow = () => {
+    return props.items.map(item => {
+      return (
+        <tr key={item._id}>
+          <td>{item.sku}</td>
+          <td>{item.name}</td>
+          <td>
+            <Moment format="DD/MM/YY">{item.expDate}</Moment>
+          </td>
+
+          <td>{item.quantity}</td>
+          <td>
+            <input type="checkbox" name="" value="" checked />
+          </td>
+          <td>
+            <input type="checkbox" name="" value="" checked />
+          </td>
+          <td>
+            <button onClick={() => props.removeItem(item._id)}>X</button>
+          </td>
+        </tr>
+      );
+    });
+  };
+
   return (
     <div className="container">
       <h1>March</h1>
       <table className="table-row">
-        <tr>
-          <th>#SKU</th>
-          <th>Product</th>
-          <th>EXP</th>
-          <th>Date Added</th>
-          <th>Qyantity</th>
-          <th>50%</th>
-          <th>90%</th>
-          <th>Delete</th>
-        </tr>
-        <tr>
-          <td>006435</td>
-          <td>Busy B 60's</td>
-          <td>20/10/19</td>
-          <td>10/10/19</td>
-          <td>5</td>
-          <td>false</td>
-          <td>false</td>
-          <td> X </td>
-        </tr>
-        <tr>
-          <td>006435</td>
-          <td>Busy B 60's</td>
-          <td>20/10/19</td>
-          <td>10/10/19</td>
-          <td>5</td>
-          <td>false</td>
-          <td>false</td>
-          <td> X </td>
-        </tr>
-        <tr>
-          <td>006435</td>
-          <td>Busy B 60's</td>
-          <td>20/10/19</td>
-          <td>10/10/19</td>
-          <td>5</td>
-          <td>false</td>
-          <td>false</td>
-          <td> X </td>
-        </tr>
-        <tr>
-          <td>006435</td>
-          <td>Busy B 60's</td>
-          <td>20/10/19</td>
-          <td>10/10/19</td>
-          <td>5</td>
-          <td>false</td>
-          <td>false</td>
-          <td> X </td>
-        </tr>
-        <tr>
-          <td>006435</td>
-          <td>Busy B 60's</td>
-          <td>20/10/19</td>
-          <td>10/10/19</td>
-          <td>5</td>
-          <td>false</td>
-          <td>false</td>
-          <td> X </td>
-        </tr>
-        <tr>
-          <td>006435</td>
-          <td>Busy B 60's</td>
-          <td>20/10/19</td>
-          <td>10/10/19</td>
-          <td>5</td>
-          <td>false</td>
-          <td>false</td>
-          <td> X </td>
-        </tr>
-        <tr>
-          <td>006435</td>
-          <td>Busy B 60's</td>
-          <td>20/10/19</td>
-          <td>10/10/19</td>
-          <td>5</td>
-          <td>false</td>
-          <td>false</td>
-          <td> X </td>
-        </tr>
-        <tr>
-          <td>006435</td>
-          <td>Busy B 60's</td>
-          <td>20/10/19</td>
-          <td>10/10/19</td>
-          <td>5</td>
-          <td>false</td>
-          <td>false</td>
-          <td> X </td>
-        </tr>
-        <tr>
-          <td>006435</td>
-          <td>Busy B 60's</td>
-          <td>20/10/19</td>
-          <td>10/10/19</td>
-          <td>5</td>
-          <td>false</td>
-          <td>false</td>
-          <td> X </td>
-        </tr>
+        <tbody>
+          <tr>
+            <th>SKU</th>
+            <th>Product</th>
+            <th>EXP</th>
+
+            <th>Quantity</th>
+            <th>50%</th>
+            <th>90%</th>
+            <th>Delete</th>
+          </tr>
+          {renderTableRow()}
+        </tbody>
       </table>
     </div>
   );
 };
 
-export default Table;
+const mapStateToProps = state => {
+  return {
+    items: Object.values(state.items)
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { getItems, getItemsByMonth, removeItem }
+)(Table);

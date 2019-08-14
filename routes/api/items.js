@@ -74,6 +74,14 @@ router.post('/', async (req, res) => {
   }
 });
 
+// @route     PUT api/items/50/:id
+// @desc      Toggle reduce item by 50
+// @access    Public
+
+// @route     PUT api/items/90/:id
+// @desc      Toggle reduce item by 90
+// @access    Public
+
 // @route     DELETE api/items/:id
 // @desc      Delete item
 // @access    Public
@@ -85,7 +93,7 @@ router.delete('/:id', async (req, res) => {
       return res.status(404).json({ msg: 'Item not found' });
     }
     await item.remove();
-    res.json({ msg: 'Item removed' });
+    res.json(item);
   } catch (err) {
     console.error(err.message);
     if (err.kind === 'ObjectId') {
