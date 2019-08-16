@@ -1,21 +1,18 @@
 .toolbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 160px;
-  height: 100%;
-
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 3rem;
+  background-color: white;
+  /* box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); */
   z-index: 100;
 }
 
 .toolbar__navigation {
   display: flex;
-  flex-direction: column;
-  /* justify-content: space-; */
-  height: 100%;
-  align-items: center;
-  padding: 0 1rem;
+  flex-direction: row;
+  justify-content: space-between;
+  /* height: 2rem; */
+  /* align-items: center;
+  padding: 0 1rem; */
 }
 
 .toolbar__logo {
@@ -37,7 +34,7 @@
 
 .toolbar__navigation-items ul li {
   /* text-decoration: none; */
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 .toolbar__navigation-items a {
   text-decoration: none;
@@ -46,5 +43,5 @@
 
 .toolbar__navigation-items a:hover,
 .toolbar__navigation-items a:active {
-  color: #fa932f;
+  color: #4ca76a;
 }

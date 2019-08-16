@@ -74,17 +74,16 @@ router.post('/', async (req, res) => {
   }
 });
 
-// @route     PUT api/items/50/:id
+// @route     Patch api/items/50/:id
 // @desc      Toggle reduce item by 50
 // @access    Public
-router.put('/50/:id', async (req, res) => {
+router.patch('/50/:id', async (req, res) => {
   try {
     const item = await Item.findById(req.params.id);
-    item.reduceToHalf = false;
-    item.reduceToHalf = !item.reduceToHalf;
+    item.reducedToHalf = !item.reducedToHalf;
 
     await item.save();
-    res.json(item.reduceToHalf);
+    res.json(item);
   } catch (err) {
     console.error(err.message);
     if (err.kind === 'ObjectId') {
@@ -93,9 +92,23 @@ router.put('/50/:id', async (req, res) => {
   }
 });
 
-// @route     PUT api/items/90/:id
+// @route     Patch api/items/90/:id
 // @desc      Toggle reduce item by 90
 // @access    Public
+router.patch('/90/:id', async (req, res) => {
+  try {
+    const item = await Item.findById(req.params.id);
+    item.reducedTo10 = !item.reducedTo10;
+
+    await item.save();
+    res.json(item);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return res.status(400).json({ msg: 'Item not found' });
+    }
+  }
+});
 
 // @route     DELETE api/items/:id
 // @desc      Delete item

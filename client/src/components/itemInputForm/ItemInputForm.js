@@ -43,40 +43,56 @@ const ItemInputForm = ({ createItem }) => {
 
   return (
     <div className="container">
-      <form onSubmit={e => handleSubmit(e)}>
-        <input
-          className="form"
-          type="text"
-          placeholder="#000000"
-          name="sku"
-          value={sku}
-          onChange={e => onChange(e)}
-        />
-        <input
-          className="form"
-          type="text"
-          placeholder="Product Name"
-          name="name"
-          value={name}
-          onChange={e => onChange(e)}
-        />
-        <input
-          className="form"
-          type="text"
-          placeholder="d/m/y"
-          name="expDate"
-          value={expDate}
-          onChange={e => onChange(e)}
-        />
-        <input
-          className="form"
-          type="text"
-          placeholder="quantity"
-          name="quantity"
-          value={quantity}
-          onChange={e => onChange(e)}
-        />
-        <input type="submit" value="Update" />
+      <form className="grid" onSubmit={e => handleSubmit(e)}>
+        <div className="">
+          <label htmlFor="sku">Sku</label>
+          <input
+            id="sku"
+            className="form"
+            type="text"
+            placeholder="#000000"
+            name="sku"
+            value={sku}
+            onChange={e => onChange(e)}
+          />
+        </div>
+        <div className="">
+          <label htmlFor="product">Product</label>
+          <input
+            id="product"
+            className="form"
+            type="text"
+            placeholder="Product Name"
+            name="name"
+            value={name}
+            onChange={e => onChange(e)}
+          />
+        </div>
+        <div className="">
+          <label htmlFor="expDate">Exp</label>
+          <input
+            id="expDate"
+            className="form"
+            type="text"
+            placeholder="d/m/y"
+            name="expDate"
+            value={expDate}
+            onChange={e => onChange(e)}
+          />
+        </div>
+        <div className="">
+          <label htmlFor="quantity">Quantity</label>
+          <input
+            id="quantity"
+            className="form"
+            type="text"
+            placeholder="quantity"
+            name="quantity"
+            value={quantity}
+            onChange={e => onChange(e)}
+          />
+        </div>
+        <input className="button" type="submit" value="Update" />
       </form>
     </div>
   );

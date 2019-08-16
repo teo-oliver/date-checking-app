@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { getItems, getItemsByMonth, removeItem } from '../../actions/item';
 import Moment from 'react-moment';
 
+import './Table.css';
+
 //Inventory
 
 const Table = props => {
@@ -29,11 +31,16 @@ const Table = props => {
           <td>
             <input type="checkbox" name="" value="" checked />
           </td>
-          <td>
+          {/* <td>
             <input type="text" name="" id="" />
-          </td>
+          </td> */}
           <td>
-            <button onClick={() => props.removeItem(item._id)}>X</button>
+            <button
+              className="button"
+              onClick={() => props.removeItem(item._id)}
+            >
+              X
+            </button>
           </td>
         </tr>
       );
@@ -42,9 +49,12 @@ const Table = props => {
 
   return (
     <div className="container">
-      <h1>March</h1>
-      <table className="table-row">
-        <tbody>
+      <div className="table-date">
+        <h1 id="month">March</h1>
+        <h3 id="year">2019</h3>
+      </div>
+      <table className="content-table">
+        <thead>
           <tr>
             <th>SKU</th>
             <th>Product</th>
@@ -53,11 +63,11 @@ const Table = props => {
             <th>Quantity</th>
             <th>50%</th>
             <th>90%</th>
-            <th>Written Off</th>
+            {/* <th>Written Off</th> */}
             <th>Delete</th>
           </tr>
-          {renderTableRow()}
-        </tbody>
+        </thead>
+        <tbody>{renderTableRow()}</tbody>
       </table>
     </div>
   );

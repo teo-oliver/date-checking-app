@@ -34,10 +34,12 @@ const ItemSchema = new Schema({
     default: Date.now
   },
   reducedToHalf: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   reducedTo10: {
-    type: Boolean
+    type: Boolean,
+    default: false
   }
 });
 

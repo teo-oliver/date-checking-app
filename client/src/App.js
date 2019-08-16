@@ -5,6 +5,9 @@ import Navbar from './components/navbar/Navbar';
 import Table from './components/table/Table';
 import ItemInputForm from './components/itemInputForm/ItemInputForm';
 
+//TEST COMPONENT
+import TestComp from './components/tests/TestComp';
+
 // Redux
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
@@ -27,9 +30,10 @@ const App = () => (
     <Router>
       <Fragment>
         <Navbar />
-        <main style={{ marginTop: '64px' }}>
+        <main>
           <Route exact path="/" component={ItemInputForm} />
           <Route exact path="/" component={Table} />
+          <Route exact path="/test" component={TestComp} />
         </main>
       </Fragment>
     </Router>
