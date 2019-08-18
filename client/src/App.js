@@ -6,6 +6,7 @@ import Table from './components/table/Table';
 import ItemInputForm from './components/itemInputForm/ItemInputForm';
 
 //TEST COMPONENT
+import TestCompAPI from './components/tests/TestCompApi';
 import TestComp from './components/tests/TestComp';
 
 // Redux
@@ -33,6 +34,7 @@ const App = () => (
         <main>
           <Route exact path="/" component={ItemInputForm} />
           <Route exact path="/" component={Table} />
+          <Route exact path="/testAPI" component={TestCompAPI} />
           <Route exact path="/test" component={TestComp} />
         </main>
       </Fragment>

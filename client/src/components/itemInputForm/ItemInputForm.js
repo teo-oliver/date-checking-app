@@ -10,6 +10,7 @@ const ItemInputForm = ({ createItem }) => {
     sku: '',
     expDate: '',
     expMonth: '',
+    expYear: '',
     quantity: '',
     section: '',
     user: null,
@@ -26,17 +27,15 @@ const ItemInputForm = ({ createItem }) => {
   const handleSubmit = e => {
     e.preventDefault();
     const dateData = formData.expDate.split('/');
-    console.log(dateData.length);
+
     if (dateData.length === 2) {
       formData.expDate = `${dateData[1]}-${dateData[0]}`;
     } else if (dateData.length === 3) {
       formData.expDate = `${dateData[1]}-${dateData[0]}-${dateData[2]}`;
     }
-    console.log(formData.expDate);
 
-    // TODO set expMonth from expDate
-    // formData.expMonth = formData.expDate.getMonth()
-    // console.log(formData.expMonth);
+    formData.expMonth = new Date(formData.expDate).getMonth();
+    formData.expYear = new Date(formData.expDate).getFullYear();
 
     createItem(formData);
   };

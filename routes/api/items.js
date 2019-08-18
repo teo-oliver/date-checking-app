@@ -16,13 +16,17 @@ router.get('/', async (req, res) => {
   }
 });
 
-// @route     Get api/items/:month
-// @desc      Get items by month
+// @route     Get api/items/:month/:year
+// @desc      Get items by month/year
 // @access    Public
-router.get('/:month', async (req, res) => {
+router.get('/:month/:year', async (req, res) => {
   try {
-    const items = await Item.find({ expMonth: req.params.month });
+    const items = await Item.find({
+      expMonth: req.params.month,
+      expYear: req.params.year
+    });
     //Todo: if(!items)
+
     res.json(items);
   } catch (err) {
     console.error(err.message);
@@ -39,6 +43,7 @@ router.post('/', async (req, res) => {
     sku,
     expDate,
     expMonth,
+    expYear,
     quantity,
     section,
     user,
@@ -59,6 +64,7 @@ router.post('/', async (req, res) => {
       sku,
       expDate,
       expMonth,
+      expYear,
       quantity,
       section,
       user,

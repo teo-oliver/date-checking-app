@@ -16,8 +16,8 @@ export const getItems = () => async dispatch => {
 };
 
 // Get Items By Month
-export const getItemsByMonth = month => async dispatch => {
-  const res = await axios.get(`/api/items/${month}`);
+export const getItemsByMonth = (month, year) => async dispatch => {
+  const res = await axios.get(`/api/items/${month}/${year}`);
   dispatch({
     type: GET_ITEM_BY_MONTH,
     payload: res.data
