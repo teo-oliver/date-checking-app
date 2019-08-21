@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { createItem } from '../../actions/item';
 
+import './ItemInputForm.css';
+
 //Make ItemInputForm as a modal. Or maybe in the sideNav?
 
 const ItemInputForm = ({ createItem }) => {
@@ -38,11 +40,17 @@ const ItemInputForm = ({ createItem }) => {
     formData.expYear = new Date(formData.expDate).getFullYear();
 
     createItem(formData);
+    setFormData({
+      name: '',
+      sku: '',
+      expDate: '',
+      quantity: ''
+    });
   };
 
   return (
     <div className="container">
-      <form className="grid" onSubmit={e => handleSubmit(e)}>
+      <form className="form-grid" onSubmit={e => handleSubmit(e)}>
         <div className="">
           <label htmlFor="sku">Sku</label>
           <input

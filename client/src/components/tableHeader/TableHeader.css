@@ -1,0 +1,13 @@
+.table-date {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#year {
+  /* padding-top: 0.8rem; */
+  /* place-items: center; */
+  /* margin: auto; */
+  align-self: center;
+  justify-self: end;
+  padding-right: 10%;
+}

@@ -33,9 +33,9 @@ const App = () => (
         <Navbar />
         <main>
           <Route exact path="/" component={ItemInputForm} />
-          <Route exact path="/" component={Table} />
+          <Route exact path="/" component={TestComp} />
           <Route exact path="/testAPI" component={TestCompAPI} />
-          <Route exact path="/test" component={TestComp} />
+          <Route exact path="/test" component={Table} />
         </main>
       </Fragment>
     </Router>

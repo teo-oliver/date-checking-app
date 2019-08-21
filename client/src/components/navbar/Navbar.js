@@ -6,9 +6,9 @@ const Navbar = () => {
     <header className="toolbar">
       <nav className="toolbar__navigation">
         <div className="toolbar__logo">
-          <a href="/">Inventory</a>
+          <a href="/">Inventory - Date Checking</a>
         </div>
-        <div className="toolbar__navigation-items">
+        {/* <div className="toolbar__navigation-items">
           <ul>
             <li>
               <a href="/" />
@@ -17,7 +17,7 @@ const Navbar = () => {
               <a href="/">Login</a>
             </li>
           </ul>
-        </div>
+        </div> */}
       </nav>
     </header>
   );

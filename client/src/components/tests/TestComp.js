@@ -2,7 +2,9 @@ import React, { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { getItems, removeItem } from '../../actions/item';
 import _ from 'lodash';
-import Moment from 'react-moment';
+
+import TableRow from '../tableRow/TableRow';
+import TableHeader from '../tableHeader/TableHeader';
 
 const TestComp = props => {
   useEffect(() => {
@@ -24,43 +26,26 @@ const TestComp = props => {
 
   const createTables = () => {
     let groupOfTables = [];
-
     for (let i = 0; i < finalArray.length; i++) {
       for (let year in finalArray[i]) {
         for (let month in finalArray[i][year]) {
           let table = [];
-          table.push(<h1 id="month">{`${month}`}</h1>);
-          table.push(<h3 id="year">{`${year}`}</h3>);
+          table.push(<TableHeader monthNumber={month} year={year} />);
 
           let children = [];
           for (let j = 0; j < finalArray[i][year][month].length; j++) {
             let item = finalArray[i][year][month][j];
-            // children.push(item.name);
+
             children.push(
-              <Fragment>
-                <tr>
-                  <td>{`${item.sku}`}</td>
-                  <td>{`${item.name}`}</td>
-                  <td>
-                    <Moment format="DD/MM/YY">{`${item.expDate}`}</Moment>
-                  </td>
-                  <td>{`${item.quantity}`}</td>
-                  <td>
-                    <input type="checkbox" name="" value="" checked />
-                  </td>
-                  <td>
-                    <input type="checkbox" name="" value="" checked />
-                  </td>
-                  <td>
-                    <button
-                      className="button"
-                      onClick={() => props.removeItem(item._id)}
-                    >
-                      X
-                    </button>
-                  </td>
-                </tr>
-              </Fragment>
+              <TableRow
+                sku={item.sku}
+                name={item.name}
+                expDate={item.expDate}
+                quantity={item.quantity}
+                _id={item._id}
+                _50={item.reducedToHalf}
+                _90={item.reducedTo10}
+              />
             );
           }
           table.push(children);
@@ -73,7 +58,6 @@ const TestComp = props => {
       return (
         <div className="container">
           {tables[0]}
-          {tables[1]}
           <table className="content-table">
             <thead>
               <tr>
@@ -86,7 +70,7 @@ const TestComp = props => {
                 <th>Delete</th>
               </tr>
             </thead>
-            <tbody>{tables[2].map(item => item)}</tbody>
+            <tbody>{tables[1].map(item => item)}</tbody>
           </table>
         </div>
       );
@@ -128,6 +112,34 @@ export default connect(
 
 // console.log(Object.keys(groupedByYear));
 // console.log(Object.values(groupedByYear));
+
+// {
+/* <Fragment>
+      <tr>
+        <td>{`${item.sku}`}</td>
+        <td>{`${item.name}`}</td>
+        <td>
+          <Moment format="DD/MM/YY">{`${item.expDate}`}</Moment>
+        </td>
+        <td>{`${item.quantity}`}</td>
+        <td>
+          <input type="checkbox" name="" value="" checked />
+        </td>
+        <td>
+          <input type="checkbox" name="" value="" checked />
+        </td>
+        <td>
+          <button
+            className="button"
+            onClick={() => props.removeItem(item._id)}
+          >
+            X
+          </button>
+        </td>
+      </tr>
+    </Fragment>
+ */
+// }
 
 // #########################################################
 // #########################################################

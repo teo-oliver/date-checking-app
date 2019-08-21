@@ -8,8 +8,7 @@ const ItemSchema = new Schema({
   },
   sku: {
     type: Number,
-    required: true,
-    unique: true
+    required: true
   },
   expDate: {
     type: Date,
