@@ -6,7 +6,7 @@ const Navbar = () => {
     <header className="toolbar">
       <nav className="toolbar__navigation">
         <div className="toolbar__logo">
-          <a href="/">Inventory - Date Checking</a>
+          <a href="/">Date Checking</a>
         </div>
         {/* <div className="toolbar__navigation-items">
           <ul>
