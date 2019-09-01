@@ -1,0 +1,17 @@
+.landing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  background: url('../../img/kim-daniels-P2qImp_Mr2Y-unsplash.jpg') no-repeat
+    center center/cover;
+  height: 100vh;
+  overflow-x: hidden;
+  color: #1b4502;
+}
+
+.dark-overlay {
+  grid-column: 2;
+  margin-top: 4rem;
+  margin-left: 1rem;
+  justify-items: center;
+}

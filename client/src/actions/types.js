@@ -6,3 +6,5 @@ export const GET_ITEM_BY_MONTH = 'GET_ITEM_BY_MONTH';
 export const REDUCE_ITEM_BY_50 = 'REDUCE_ITEM_BY_50';
 export const REDUCE_ITEM_BY_90 = 'REDUCE_ITEM_BY_90';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
+export const SET_ALERT = 'SET_ALERT';
+export const REMOVE_ALERT = 'REMOVE_ALERT';

@@ -30,6 +30,10 @@ const ItemInputForm = ({ createItem }) => {
     e.preventDefault();
     const dateData = formData.expDate.split('/');
 
+    if (!name || !sku || !expDate || !quantity) {
+      console.log('Form incomplete');
+    }
+
     if (dateData.length === 2) {
       formData.expDate = `${dateData[1]}-${dateData[0]}`;
     } else if (dateData.length === 3) {

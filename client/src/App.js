@@ -4,10 +4,7 @@ import './App.css';
 import Navbar from './components/navbar/Navbar';
 import Table from './components/table/Table';
 import ItemInputForm from './components/itemInputForm/ItemInputForm';
-
-//TEST COMPONENT
-import TestCompAPI from './components/tests/TestCompApi';
-import TestComp from './components/tests/TestComp';
+import Landing from './components/layout/Landing';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -30,12 +27,11 @@ const App = () => (
   <Provider store={store}>
     <Router>
       <Fragment>
-        <Navbar />
         <main>
-          <Route exact path="/" component={ItemInputForm} />
-          <Route exact path="/" component={TestComp} />
-          <Route exact path="/testAPI" component={TestCompAPI} />
-          <Route exact path="/test" component={Table} />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/table" component={Navbar} />
+          <Route exact path="/table" component={ItemInputForm} />
+          <Route exact path="/table" component={Table} />
         </main>
       </Fragment>
     </Router>

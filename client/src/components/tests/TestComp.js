@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getItems, removeItem } from '../../actions/item';
 import _ from 'lodash';

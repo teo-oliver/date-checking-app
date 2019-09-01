@@ -17,9 +17,7 @@ const TableRow = ({
 }) => {
   return (
     <Fragment>
-      {console.log('50', _50)}
-      {console.log('90', _90)}
-      <tr>
+      <tr key={sku}>
         <td>{`${sku}`}</td>
         <td>{`${name}`}</td>
         <td>
@@ -33,6 +31,7 @@ const TableRow = ({
             name=""
             value=""
             checked={_50}
+            readOnly
             onClick={() => reduceItemBy50(_id)}
           />
         </td>
@@ -43,6 +42,7 @@ const TableRow = ({
             name=""
             value=""
             checked={_90}
+            readOnly
             onClick={() => reduceItemBy90(_id)}
           />
         </td>
