@@ -4,7 +4,7 @@ import './TableHeader.css';
 
 const TableHeader = ({ monthNumber, year }) => {
   // var d = new Date();
-  var month = new Array();
+  var month = [];
   month[0] = 'January';
   month[1] = 'February';
   month[2] = 'March';

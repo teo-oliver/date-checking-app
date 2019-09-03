@@ -5,6 +5,7 @@ import Navbar from './components/navbar/Navbar';
 import Table from './components/table/Table';
 import ItemInputForm from './components/itemInputForm/ItemInputForm';
 import Landing from './components/layout/Landing';
+import Alert from './components/layout/Alert';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -30,6 +31,7 @@ const App = () => (
         <main>
           <Route exact path="/" component={Landing} />
           <Route exact path="/table" component={Navbar} />
+          <Alert />
           <Route exact path="/table" component={ItemInputForm} />
           <Route exact path="/table" component={Table} />
         </main>

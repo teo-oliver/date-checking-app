@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { createItem } from '../../actions/item';
-
+import { setAlert } from '../../actions/alert';
 import './ItemInputForm.css';
 
 //Make ItemInputForm as a modal. Or maybe in the sideNav?
 
-const ItemInputForm = ({ createItem }) => {
+const ItemInputForm = ({ createItem, setAlert }) => {
   const [formData, setFormData] = useState({
     name: '',
     sku: '',
@@ -31,7 +31,7 @@ const ItemInputForm = ({ createItem }) => {
     const dateData = formData.expDate.split('/');
 
     if (!name || !sku || !expDate || !quantity) {
-      console.log('Form incomplete');
+      setAlert('Form incomplete', 'danger');
     }
 
     if (dateData.length === 2) {
@@ -117,5 +117,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { createItem }
+  { createItem, setAlert }
 )(ItemInputForm);

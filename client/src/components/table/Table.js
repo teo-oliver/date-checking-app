@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getItems, removeItem } from '../../actions/item';
+
 import _ from 'lodash';
 
 import TableRow from '../tableRow/TableRow';
@@ -11,7 +12,7 @@ import './Table.css';
 const TestComp = props => {
   useEffect(() => {
     props.getItems();
-  });
+  }, []);
 
   let groupedByYear = _.groupBy(props.items, function(n) {
     return new Date(n.expDate).getFullYear();
