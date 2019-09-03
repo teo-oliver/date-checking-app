@@ -37,11 +37,14 @@ const Landing = () => {
             organize your stock
           </h2>
           <div className="buttons">
-            <Link to="/register" className="button">
+            {/* <Link to="/register" className="button">
               Sign Up
             </Link>
             <Link to="/login" className="button">
               Login
+            </Link> */}
+            <Link to="/table" className="button">
+              Try it now
             </Link>
           </div>
         </div>

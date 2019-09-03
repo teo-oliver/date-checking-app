@@ -31,7 +31,7 @@ const ItemInputForm = ({ createItem, setAlert }) => {
     const dateData = formData.expDate.split('/');
 
     if (!name || !sku || !expDate || !quantity) {
-      setAlert('Form incomplete', 'danger');
+      setAlert('Form incomplete, please fill in all fields', 'danger');
     }
 
     if (dateData.length === 2) {
