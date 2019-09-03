@@ -1,3 +1,11 @@
+:root {
+  --text-color: black;
+  --dark-color: #343a40;
+  --light-color: #f4f4f4;
+  --danger-color: #dc3545;
+  --success-color: #28a745;
+}
+
 .landing {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -6,7 +14,16 @@
     center center/cover;
   height: 100vh;
   overflow-x: hidden;
-  color: #235c02;
+  color: var(--dark-color);
+}
+
+.image {
+  /* background-image: url('../../img/mae-mu-BxsGyQwjwaw-unsplash_Fotor.jpg'); */
+  grid-column: 1;
+
+  position: relative;
+  align-self: center;
+  justify-self: center;
 }
 
 .title {
@@ -15,7 +32,8 @@
 
 .landing-inner {
   text-align: center;
-  margin: 3rem;
+  margin: 30% 3rem;
+  align-self: center;
 }
 
 .organize-buttons {
@@ -24,7 +42,7 @@
 
 .button-big {
   color: white;
-  background-color: #235c02;
+  background-color: var(--dark-color);
   width: 75%;
   padding: 0.8rem;
   border: 1px solid #bbb;
@@ -37,7 +55,9 @@
 .dark-overlay {
   grid-column: 2;
   margin-top: 4rem;
+  margin-bottom: 4rem;
   justify-items: center;
+  border-left: 1px var(--dark-color) solid;
 }
 
 .unsplash-badge {

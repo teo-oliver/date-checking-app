@@ -11,22 +11,9 @@
 html {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-  /* height: 100%;
-  background-image: linear-gradient(
-    to bottom right,
-    rgb(248, 248, 248),
-    rgb(121, 240, 224)
-  );
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed; */
 }
 
 body {
-  /* margin-left: 1rem;
-  margin-right: 1rem;
-  height: 100%; */
   margin: 0;
   padding: 0;
 }
