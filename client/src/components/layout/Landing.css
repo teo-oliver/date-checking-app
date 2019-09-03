@@ -6,13 +6,37 @@
     center center/cover;
   height: 100vh;
   overflow-x: hidden;
-  color: #1b4502;
+  color: #235c02;
+}
+
+.title {
+  text-align: center;
+}
+
+.landing-inner {
+  text-align: center;
+  margin: 3rem;
+}
+
+.organize-buttons {
+  display: grid;
+}
+
+.button-big {
+  color: white;
+  background-color: #235c02;
+  width: 75%;
+  padding: 0.8rem;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  justify-self: center;
 }
 
 .dark-overlay {
   grid-column: 2;
   margin-top: 4rem;
-  margin-left: 1rem;
   justify-items: center;
 }
 
@@ -23,7 +47,7 @@
 }
 
 .unsplash-link {
-  background-color: #1b4502;
+  background-color: #235c02;
   color: white;
   text-decoration: none;
   padding: 4px 6px;

@@ -31,19 +31,12 @@ const Landing = () => {
       </div>
       <div className="dark-overlay">
         <div className="landing-inner">
-          <h1>Date Checking App</h1>
+          <h1 className="title">Date Checking App</h1>
           <h2 className="lead">
-            Create tables to keep track of expiry dates, reduce shrinkage and
-            organize your stock
+            Keep track of expiry dates, reduce shrinkage and organize your stock
           </h2>
-          <div className="buttons">
-            {/* <Link to="/register" className="button">
-              Sign Up
-            </Link>
-            <Link to="/login" className="button">
-              Login
-            </Link> */}
-            <Link to="/table" className="button">
+          <div className="organize-buttons">
+            <Link to="/table" className="button-big">
               Try it now
             </Link>
           </div>
