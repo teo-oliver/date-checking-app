@@ -4,8 +4,6 @@ import { createItem } from '../../actions/item';
 import { setAlert } from '../../actions/alert';
 import './ItemInputForm.css';
 
-//Make ItemInputForm as a modal. Or maybe in the sideNav?
-
 const ItemInputForm = ({ createItem, setAlert }) => {
   const [formData, setFormData] = useState({
     name: '',

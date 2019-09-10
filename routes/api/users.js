@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 });
 
 // @route     POST api/users
-// @desc      Register user
+// @desc      Create user
 // @access    Public
 router.post('/', async (req, res) => {
   const { name, userId, password } = req.body;
