@@ -31,6 +31,7 @@ passport.use(
       const user = await new User({
         googleId: profile.id,
         name: profile.name.givenName
+        // add tillNumber (5 digit number)
       }).save();
       done(null, user);
     }

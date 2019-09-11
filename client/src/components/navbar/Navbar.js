@@ -8,16 +8,16 @@ const Navbar = () => {
         <div className="toolbar__logo">
           <a href="/">Date Checking</a>
         </div>
-        {/* <div className="toolbar__navigation-items">
+        <div className="toolbar__navigation-items">
           <ul>
             <li>
               <a href="/" />
             </li>
             <li>
-              <a href="/">Login</a>
+              <a href="/api/auth/google">Login</a>
             </li>
           </ul>
-        </div> */}
+        </div>
       </nav>
     </header>
   );

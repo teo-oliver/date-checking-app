@@ -13,6 +13,11 @@ router.get('/google/callback', passport.authenticate('google'), (req, res) => {
   res.send('you reached the callback URI');
 });
 
+router.get('/logout', (req, res) => {
+  req.logout();
+  res.send(req.user);
+});
+
 router.get('/current_user', (req, res) => {
   res.send(req.user);
 });
