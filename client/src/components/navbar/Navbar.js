@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Navbar.css';
+import { connect } from 'react-redux';
+import { fetchUser } from '../../actions/user';
 
-const Navbar = () => {
+const Navbar = props => {
+  useEffect(() => {
+    props.fetchUser();
+  }, []);
+
+  console.log(props.auth);
+
+  const renderContent = () => {
+    switch (props.auth) {
+      case null:
+        //Return a spinner on the main app
+        return;
+      case false:
+        return <a href="/api/auth/google">Login with Google</a>;
+      default:
+        return <a href="/api/auth/logout">Logout</a>;
+    }
+  };
+
   return (
     <header className="toolbar">
       <nav className="toolbar__navigation">
@@ -13,9 +33,7 @@ const Navbar = () => {
             <li>
               <a href="/" />
             </li>
-            <li>
-              <a href="/api/auth/google">Login</a>
-            </li>
+            <li>{renderContent()}</li>
           </ul>
         </div>
       </nav>
@@ -23,4 +41,11 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+const mapStateToProps = state => {
+  return { auth: state.auth };
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchUser }
+)(Navbar);
